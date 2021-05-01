@@ -46,8 +46,7 @@ class BenefitView(ModelView):
     edit_columns = ['name']
     show_columns = ['name']
     list_columns = ['name']
-    
-#admin 內容
+
 class MenuItemView(ModelView):
     datamodel = SQLAInterface(MenuItem)
     list_columns = ['id', 'name', 'link', 'menu_category_id']
@@ -70,7 +69,7 @@ class NewsPageView(BaseView):
 
     @expose('/local_news/')
     def local_news(self):
-        param1 = 'Local News1234'
+        param1 = 'Local News'
         self.update_redirect()
         return self.render_template('news.html', param1 = param1)
 
@@ -111,7 +110,25 @@ class FoodConfectioneryView(ModelView):
     
 class FoodPageView(BaseView):
     default_view = 'Biscuits'
- 
+  
+/*  
+###Li try
+class SeaFoodView(ModelView):
+   datamodel = SQLAInterface(SeaFood)
+    list_columns = ['id', 'title', 'origin', 'Price']
+
+class FishView(ModelView):
+    datamodel = SQLAInterface(Fish)
+   list_columns = ['id', 'title', 'origin', 'Price']
+
+class MeatView(ModelView):
+    datamodel = SQLAInterface(Meat)
+   list_columns = ['id', 'title', 'origin', 'Price']
+*/
+*/
+    
+    
+    
     @expose('/Biscuits/')
     def Biscuits(self):
         param1 = 'Biscuits'
@@ -129,14 +146,6 @@ class FoodPageView(BaseView):
         param1 = 'Confectionery'
         self.update_redirect()
         return self.render_template('news.html', param1 = param1)
- 
-###Li try
-
-
-    
-    
-    
-   
     
 
 db.create_all()
@@ -145,19 +154,23 @@ appbuilder.add_view(PromotionDrinkView, "PromotionDrink", category="Drinks")
 appbuilder.add_view(HealthDrinkView, "HealthDrink", category="Drinks")
 appbuilder.add_view(AlcoholicBeveragesView, "AlcoholicBeverages", category="Drinks")
 appbuilder.add_view(AlldrinksView, "Alldrinks", category="Drinks")
-
+""" Page View """
+appbuilder.add_view(NewsPageView, 'Local News', category="News")
+appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
 #hin try
 appbuilder.add_view(FoodView, 'Biscuits', category="Food")
 appbuilder.add_view(FoodsnackView, 'Snacks', category="Food")
 appbuilder.add_view(FoodConfectioneryView, 'Confectionery', category="Food")
-
+/*
 #Li try
-
+appbuilder.add_view(SeafoodView, "Seafood", category="FrozenFood")
+appbuilder.add_view(FishView, "Fish", category="FrozenFood")
+appbuilder.add_view(MeatView, "Meat", category="FrozenFood")
+*/
 #HMK try
 
-""" Page View """
-appbuilder.add_view(NewsPageView, 'Local News', category="News")
-appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
+
+
 """ Custom Views """
 appbuilder.add_view(MenuItemView, "MenuItem", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(MenuCategoryView, "MenuCategory", icon="fa-folder-open-o", category="Admin")

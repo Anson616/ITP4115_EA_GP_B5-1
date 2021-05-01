@@ -78,8 +78,7 @@ class Employee(Model):
 
     def __repr__(self):
         return self.full_name
-        
-#Admin list
+
 class MenuItem(Model):
     __tablename__ = 'menu_item'
     id = Column(Integer, primary_key=True)
@@ -115,10 +114,8 @@ class PromotionDrinkMD(Model):
     title = Column(String(50), nullable=False)
     content = Column(String(500), nullable=False)
     price = Column(Float,  nullable=False)
-    '''
     all_drinks_id = Column(Integer, ForeignKey('all_drinks.id'), nullable=False)
     all_drinks = relationship("Alldrinks")
-    '''
   
 class HealthDrinkMD(Model):
     __tablename__ = 'health_drinks'
@@ -160,15 +157,19 @@ class FoodConfectionery(Model):
     title = Column(String(50), nullable=False)
     name = Column(String(50), nullable=False)
     Price = Column(Integer,  nullable=False)
-  
-  
+    
     #Li try
-
-
-
-#HMK
-class FontPageImg(model):
-    __tablename__ = 'FontPageImgs'
+class Seafood(Model):
+    __tablename__ = 'Seafood'
     id = Column(Integer, primary_key=True)
-    img_title = Column(string(25), nullable=True)
-    img_src = Column(string(50), nullable=True)
+    title = Column(String(50), nullable=False)
+    origin = Column(String(50), nullable=False)
+    Price = Column(Integer,  nullable=False)
+    
+class Fish(Model):
+    __tablename__ = 'Fish'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(50), nullable=False)
+    origin = Column(String(50), nullable=False)
+    Price = Column(Integer,  nullable=False)
+    
