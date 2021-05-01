@@ -1,0 +1,139 @@
+<!-- extend base layout -->
+{% extends "index_base.html" %}
+
+{% block head_css %}
+        {{ super() }}
+        <link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+       <li data-target="#carousel-example-generic" data-slide-to="1" ></li>
+       <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3" ></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="jumbotron" style="background: url('static/img/slide1.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
+            <div class="container">
+            <h2> {{_("Weekly Discount Code")}}</h2>
+            <p>{{_("To let customers enjoy our service, we will have a weekly discount!!!")}}</p>
+            <p><a class="btn btn-primary btn-lg" href="https://www.parknshop.com/zh-hk/?gclid=CjwKCAjwj6SEBhAOEiwAvFRuKJeIAhIwY89-YoN28Arx-veNFR-9WhnIYB6sqg48UjmrHEZp3N7jBBoC1BgQAvD_BwE"
+                 role="button">{{_("Star it")}} <i class="fa fa-star"></i></a></p>
+            </center>
+            </div>
+           </div>
+        </div>
+
+        <div class="item">
+            <div class="jumbotron" style="background: url('static/img/slide2.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
+            <div class="container">
+            <h2> {{_("Every place have us!!!")}}</h2>
+            <p>{{_("We have many branch in Hong Kong, Check our website to see the parknshop nearest to you")}}</p>
+            <center>
+                <p><a class="btn btn-primary btn-lg" href="https://www.parknshop.com/zh-hk/storeLocator" role="button">{{_("Issues")}} &raquo;</a></p>
+            </center>
+            </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="jumbotron" style="background: url('static/img/slide3.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
+            <div class="container">
+            <h2><i class="fa fa-book"></i> {{_("Weekly Top 100 product Information")}}</h2>
+            <p>{{_("If you are not interest about our product? Try to have a look on our Top 100 product")}}</p>
+            <center>
+            <p><a class="btn btn-primary btn-lg" href="https://www.parknshop.com/zh-hk/rank/weeklytop100" role="button">{{_("More Detail")}} &raquo;</a></p>
+            </center>
+            </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="jumbotron" style="background: url('static/img/slide4.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
+            <div class="container">
+            <h2><i class="fa fa-play"></i> {{_("Limit Time discount!!")}}</h2>
+            <p>{{_("We regular have different discount on everything, Keep noticing our page to get any information!!!'")}}</p>
+            <center>
+            <p><a class="btn btn-primary btn-lg"  href="login" role="button">{{_("Login")}} &raquo;</a></p>
+            </center>
+            </div>
+            </div>
+        </div>
+</div>
+
+    <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+
+</div>
+
+      <div class="row" style="background:url('static/img/polaroid.png')">
+        <div class="col-md-7 col-md-offset-1 col-xs-offset-1">
+          <h2 class="featurette-heading">{{_("Many ways of payment ")}}</h2>
+            <ul>
+          <li class="lead tight">{{_("You can pay with cash.")}}</li>
+        <li class="lead tight">{{_("Credit Card with master.")}}</li>
+        <li class="lead tight">{{_("Credit Card with Visa.")}}</li>
+        <li class="lead tight">{{_("Alipay and UnionPay are also supported.")}}</li>
+                </ul>
+        </div>
+        <div class="col-md-3 col-xs-3 col-md-offset-1 col-xs-offset-1">
+          <h1><i class="fa fa-bolt fa-5x"></i></h1>
+        </div>
+      </div>
+
+      <div class="row" style="background:url('static/img/fabric_1.png')">
+          <div class="col-md-3 col-md-offset-1 col-xs-offset-1 ">
+           <h1><i class="fa fa-lock fa-5x"></i></h1>
+          </div>
+          <div class="col-md-7 col-md-offset-1 col-xs-offset-1">
+            <h2 class="featurette-heading">{{_("Privacy Policy")}}<span class="text-muted">{{_("Our Pledge")}}</span></h2>
+          <ul>
+            <li class="lead tight">{{_("We are committed to safeguarding your privacy and ensuring that your Personal Data is protected. This Privacy Policy Statement explains the types of Personal Data we collect and how we process and protect that data.")}}</li>
+            <li class="lead tight">{{_("We shall keep your Personal Data confidential and shall ensure that our policies and practices with respect to the collection, use, retention, disclosure, transfer, security and access of your Personal Data comply with the laws of Hong Kong.")}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row featurette" style="background:url('static/img/ol_moon.png')">
+        <div class="col-md-7 col-md-offset-1 col-xs-offset-1">
+          <h2 class="featurette-heading">{{_("Delivery Service ")}}<span class="text-muted">{{_(" Convenient Delivery Schedule")}}</span></h2>
+        <ul>
+            <li class="lead tight">{{_("We offer same day to 10 days delivery service, details as below:")}}</li>
+            <li class="lead tight">{{_("Hong Kong Island, Kowloon,New Territories (Includes Tung Chung & Hong Kong International Airport),Ma Wan, Discovery Bay")}}</li>
+            <li class="lead tight">{{_("Order Time	Earliest Delivery Timeslot")}}</li>
+            <li class="lead tight">{{_("Before 11:00am	7:00pm - 10:30pm on the same day")}}</li>
+            <li class="lead tight">{{_("11:00am - 3:00pm	11:00am - 4:00pm on the next day")}}</li>
+            <li class="lead tight">{{_("After 3:00pm	7:00pm - 10:30pm on the next day")}}</li>
+        </ul>
+        </div>
+        <div class="col-md-3 col-xs-3 col-md-offset-1 col-xs-offset-1">
+          <h1><i class="fa fa-list-alt fa-5x"></i></h1>
+        </div>
+      </div>
+
+       <div class="row" style="background:url('static/img/green_cup.png')">
+          <div class="col-md-3 col-md-offset-1 col-xs-offset-1">
+           <h1><i class="fa fa-cog fa-5x"></i></h1>
+          </div>
+          <div class="col-md-7 col-md-offset-1 col-xs-offset-1">
+            <h2 class="featurette-heading">{{_("CONTACT US")}}</h2>
+          <ul>
+            <li class="lead tight">{{_("Tel:[Hong Kong] +(852)2690 0948")}}</li>
+            <li class="lead tight">{{_("Fax:+(852)2186 3389")}}</li>
+            <li class="lead tight">{{_("Email:Parknshop.info@asw.com.hk")}}</li>
+            <li class="lead tight">{{_("Office Hours:Mon - Sun 9:00a.m. - 10:00p.m.")}}</li>
+          </ul>
+        </div>
+      </div>
+
+{% endblock %}
