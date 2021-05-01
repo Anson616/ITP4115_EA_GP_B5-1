@@ -1,7 +1,7 @@
 from flask_appbuilder import ModelView
 from flask_appbuilder.fieldwidgets import Select2Widget
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from .models import Employee,Department, Function, EmployeeHistory, Benefit, MenuItem, MenuCategory, News, NewsCategory, PromotionDrinkMD, HealthDrinkMD, AlcoholicBeveragesMD, Alldrinks, Food, Foodsnack, FoodConfectionery
+from .models import Employee,Department, Function, EmployeeHistory, Benefit, MenuItem, MenuCategory, News, NewsCategory, PromotionDrinkMD, HealthDrinkMD, AlcoholicBeveragesMD, Alldrinks, Food, Foodsnack, FoodConfectionery, AllShop, ShopType,TypeOfProduct
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from app import appbuilder, db
 from flask_appbuilder.baseviews import expose, BaseView
@@ -137,8 +137,16 @@ class FoodPageView(BaseView):
 #HMK
 
 class AllShopView(ModelView):
-    datamodel = SQLAInterface(FoodConfectionery)
+    datamodel = SQLAInterface(AllShop)
     list_columns = ['id', 'shop_area', 'shop_district', 'shop_type']
+
+class ShopTypeView(ModelView):
+    datamodel = SQLAInterface(ShopType)
+    ist_columns = ['id', 'shoptype_name']
+
+class TypeOfProductView(ModelView):
+    datamodel = SQLAInterface(TypeOfProduct)
+    ist_columns = ['id', 'type_name']
     
    
     
@@ -156,9 +164,14 @@ appbuilder.add_view(FoodsnackView, 'Snacks', category="Food")
 appbuilder.add_view(FoodConfectioneryView, 'Confectionery', category="Food")
 
 #Li try
-
+appbuilder.add_view(SeaFoodView, 'SeaFood', category="FrozenFood")
+appbuilder.add_view(FishView, 'Fish', category="FrozenFood")
+appbuilder.add_view(MeatView, 'Meat', category="FrozenFood")
 #HMK try
 appbuilder.add_view(AllShopView, 'places', category='Shops')
+appbuilder.add_view(ShopTypeView, 'places', category='Shops')
+appbuilder.add_view(TypeOfProductView, 'Type', category='All type')
+
 
 
 

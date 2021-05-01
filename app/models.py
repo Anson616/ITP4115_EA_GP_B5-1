@@ -117,10 +117,9 @@ class PromotionDrinkMD(Model):
     title = Column(String(50), nullable=False)
     content = Column(String(500), nullable=False)
     price = Column(Float,  nullable=False)
-    '''
     all_drinks_id = Column(Integer, ForeignKey('all_drinks.id'), nullable=False)
     all_drinks = relationship("Alldrinks")
-    '''
+    
   
 class HealthDrinkMD(Model):
     __tablename__ = 'health_drinks'
