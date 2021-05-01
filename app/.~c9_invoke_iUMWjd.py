@@ -210,12 +210,6 @@ class TypeOfProduct(Model):
     id = Column(Integer, primary_key=True)
     type_name = Column(String(50), nullable=False)
     
-class ShoppingCar(Model):
-    __tablename__ = 'ShoppingCars'
-    id = Column(Integer, primary_key=True)
-    product_name = Column(String(50), nullable=False)
-    product_item = Column(Integer, nullable=False)
-    
     
     
  

@@ -1,7 +1,7 @@
 from flask_appbuilder import ModelView
 from flask_appbuilder.fieldwidgets import Select2Widget
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from .models import Employee,Department, Function, EmployeeHistory, Benefit, MenuItem, MenuCategory, News, NewsCategory, PromotionDrinkMD, HealthDrinkMD, AlcoholicBeveragesMD, Alldrinks, Food, Foodsnack, FoodConfectionery, Allfoods, AllShop, ShopType, TypeOfProduct, SeaFood, Fish, Meat
+from .models import Employee,Department, Function, EmployeeHistory, Benefit, MenuItem, MenuCategory, News, NewsCategory, PromotionDrinkMD, HealthDrinkMD, AlcoholicBeveragesMD, Alldrinks, Food, Foodsnack, FoodConfectionery, Allfoods, AllShop, ShopType, TypeOfProduct, SeaFood, Fish, Meat, ShoppingCar
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from app import appbuilder, db
 from flask_appbuilder.baseviews import expose, BaseView
@@ -70,15 +70,10 @@ class NewsPageView(BaseView):
 
     @expose('/local_news/')
     def local_news(self):
-        param1 = 'Local News1234'
+        param1 = 'Contact Us! [HongKong] +(852)2690 0948'
         self.update_redirect()
         return self.render_template('news.html', param1 = param1)
 
-    @expose('/global_news/')
-    def global_news(self):
-        param1 = 'Global News'
-        self.update_redirect()
-        return self.render_template('news.html', param1=param1)
 #KCY
 class PromotionDrinkView(ModelView):
     datamodel = SQLAInterface(PromotionDrinkMD)
@@ -162,7 +157,10 @@ class ShopTypeView(ModelView):
 class TypeOfProductView(ModelView):
     datamodel = SQLAInterface(TypeOfProduct)
     list_columns = ['id', 'type_name']
-    
+
+class ShoppingCarView(ModelView):
+    datamodel = SQLAInterface(ShoppingCar)
+    list_columns = ['id', 'product_name', 'product_item']
    
     
 
@@ -188,14 +186,15 @@ appbuilder.add_view(MeatView, 'Meat', category="FrozenFood")
 appbuilder.add_view(AllShopView, 'places', category='Shops')
 appbuilder.add_view(ShopTypeView, 'Shop_type', category='Shops')
 appbuilder.add_view(TypeOfProductView, 'Type', category='All type')
+appbuilder.add_view(ShoppingCarView, 'ShoppingCar', category="ShoppingCar")
 
 
 
 
 
 """ Page View """
-appbuilder.add_view(NewsPageView, 'Local News', category="News")
-appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
+appbuilder.add_view(NewsPageView, 'Contact Us', category="Contact Us")
+
 """ Custom Views """
 appbuilder.add_view(MenuItemView, "MenuItem", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(MenuCategoryView, "MenuCategory", icon="fa-folder-open-o", category="Admin")
