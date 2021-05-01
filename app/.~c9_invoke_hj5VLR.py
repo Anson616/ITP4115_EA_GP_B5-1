@@ -108,8 +108,6 @@ class NewsCategory(Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
   
-
-  
   #KCY
 class PromotionDrinkMD(Model):
     __tablename__ = 'promo_drinks'
@@ -166,25 +164,12 @@ class FoodConfectionery(Model):
   
     #Li try
 
- #HMK
-class AllShop(Model):
-    __tablename__ = 'ShopPlace'
-    id = Column(Integer, primary_key=True)
-    shop_area = Column(String(25), nullable=False)
-    shop_district = Column(String(25), nullable=False)
-    shop_type = Column(Integer, ForeignKey('ShopTypes.id'), nullable=False)
-    shop_category = relationship("ShopType")
-    
-class ShopType(Model):
-    __tablename__ = 'ShopTypes'
-    id = Column(Integer, primary_key=True)
-    shoptype_name = Column(String(50), nullable=False)
 
-class TypeOfProduct(Model):
-    __tablename__ = 'TypeOfProducts'
+
+#HMK
+class FrontPageImg(Model):
+    __tablename__ = 'FrontPageImgs'
     id = Column(Integer, primary_key=True)
-    type_name = Column(String(50), nullable=False)
+    img_title = Column(String(25), nullable=True)
+    img_src = Column(String(50), nullable=True)
     
-    
-    
- 

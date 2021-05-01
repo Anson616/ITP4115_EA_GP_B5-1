@@ -130,15 +130,15 @@ class FoodPageView(BaseView):
         self.update_redirect()
         return self.render_template('news.html', param1 = param1)
  
-#Li try
+###Li try
 
 
 
 #HMK
-
-class AllShopView(ModelView):
-    datamodel = SQLAInterface(FoodConfectionery)
-    list_columns = ['id', 'shop_area', 'shop_district', 'shop_type']
+class FrontPageImgView(ModelView):
+    datamodel = SQLAInterface(FrontPageImg)
+    list_columns = ['id', 'img_title', 'img_src']
+    
     
    
     
@@ -158,7 +158,7 @@ appbuilder.add_view(FoodConfectioneryView, 'Confectionery', category="Food")
 #Li try
 
 #HMK try
-appbuilder.add_view(AllShopView, 'places', category='Shops')
+
 
 
 
