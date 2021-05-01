@@ -1,7 +1,7 @@
 from flask_appbuilder import ModelView
 from flask_appbuilder.fieldwidgets import Select2Widget
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from .models import Employee,Department, Function, EmployeeHistory, Benefit, MenuItem, MenuCategory, News, NewsCategory, PromotionDrinkMD, HealthDrinkMD, AlcoholicBeveragesMD, Alldrinks, Food, Foodsnack, FoodConfectionery, AllShop, ShopType, TypeOfProduct, SeaFood, Fish, Meat
+from .models import Employee,Department, Function, EmployeeHistory, Benefit, MenuItem, MenuCategory, News, NewsCategory, PromotionDrinkMD, HealthDrinkMD, AlcoholicBeveragesMD, Alldrinks, Food, Foodsnack, FoodConfectionery, Allfoods, AllShop, ShopType, TypeOfProduct, SeaFood, Fish, Meat
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from app import appbuilder, db
 from flask_appbuilder.baseviews import expose, BaseView
@@ -99,7 +99,7 @@ class AlldrinksView(ModelView):
 #HIN try
 class FoodView(ModelView):
     datamodel = SQLAInterface(Food)
-    list_columns = ['id', 'title', 'name', 'Price','Food_type']
+    list_columns = ['id', 'title', 'name', 'Price']
 
 class FoodsnackView(ModelView):
     datamodel = SQLAInterface(Foodsnack)
@@ -108,10 +108,15 @@ class FoodsnackView(ModelView):
 class FoodConfectioneryView(ModelView):
     datamodel = SQLAInterface(FoodConfectionery)
     list_columns = ['id', 'title', 'name', 'Price']
+ 
+class AllfoodsView(ModelView):
+    datamodel = SQLAInterface(Allfoods)
+    list_columns = ['id', 'title', 'cat_id']
     
 class FoodPageView(BaseView):
     default_view = 'Biscuits'
  
+    
     @expose('/Biscuits/')
     def Biscuits(self):
         param1 = 'Biscuits'
@@ -172,6 +177,7 @@ appbuilder.add_view(AlldrinksView, "Alldrinks", category="Drinks")
 appbuilder.add_view(FoodView, 'Biscuits', category="Food")
 appbuilder.add_view(FoodsnackView, 'Snacks', category="Food")
 appbuilder.add_view(FoodConfectioneryView, 'Confectionery', category="Food")
+appbuilder.add_view(AllfoodsView, "Allfoods", category="Food")
 
 #Li try
 appbuilder.add_view(SeaFoodView, 'SeaFood', category="FrozenFood")

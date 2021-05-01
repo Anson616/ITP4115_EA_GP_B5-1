@@ -162,6 +162,13 @@ class FoodConfectionery(Model):
     name = Column(String(50), nullable=False)
     Price = Column(Integer,  nullable=False)
 
+class Allfoods(Model):
+    __tablename__ = 'all_foods'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(50), nullable=False)
+    cat_id = Column(Integer, ForeignKey('TypeOfProducts.id'), nullable=False)
+    product_type = relationship("TypeOfProduct")
+    
     #Li try
 class SeaFood(Model):
     __tablename__ = 'SeaFood'
