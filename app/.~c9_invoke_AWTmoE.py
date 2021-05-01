@@ -94,7 +94,7 @@ class AlcoholicBeveragesView(ModelView):
     
 class AlldrinksView(ModelView):
     datamodel = SQLAInterface(Alldrinks)
-    list_columns = ['id', 'title', 'cat_id']
+    list_columns = ['id', 'title', 'alldrinks_cat_id']
 
 #HIN try
 class FoodView(ModelView):

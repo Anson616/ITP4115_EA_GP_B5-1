@@ -137,7 +137,7 @@ class Alldrinks(Model):
     __tablename__ = 'all_drinks'
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
-    cat_id = Column(Integer, ForeignKey('TypeOfProducts.id'), nullable=False)
+    alldrinks_cat_id = Column(Integer, ForeignKey('TypeOfProducts.id'), nullable=False)
     product_type = relationship("TypeOfProduct")
     
    #HIN try
